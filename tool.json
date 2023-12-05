@@ -1,0 +1,4 @@
+{
+  "check_cmd": "bin/TCA-Plugins check",
+  "run_cmd": "bin/TCA-Plugins scan"
+}
