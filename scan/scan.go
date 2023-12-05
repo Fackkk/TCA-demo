@@ -66,6 +66,7 @@ func Scan() {
 	                   }
 	               ]
 	           }]`
+	logger.Info(filepath.Join(os.Getenv("RESULT_DIR"), "result.json"))
 	err := ioutil.WriteFile(filepath.Join(os.Getenv("RESULT_DIR"), "result.json"), []byte(result), 0644)
 	if err != nil {
 		logger.Error(err)
