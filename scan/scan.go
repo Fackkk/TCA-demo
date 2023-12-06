@@ -22,6 +22,8 @@ func Scan() {
 
 	logger.Infof("=====scan start=====")
 
+	logger.Info("This is a testcase.")
+
 	logger.Infof("=====scan end=====")
 
 	srcPath := filepath.Join(os.Getenv("SOURCE_DIR"), "scan", "scan.go")
