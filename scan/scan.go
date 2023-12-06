@@ -26,48 +26,51 @@ func Scan() {
 
 	logger.Infof("=====scan end=====")
 
-	srcPath := filepath.Join(os.Getenv("SOURCE_DIR"), "scan", "scan.go")
-	result := `[{
-	               "path": ` + srcPath + `,
-	               'line': 17,
-	               'column': 0,
-	               'msg': "This is a testcase.",
-	               'rule': "DemoRule",
-	               "refs": [
-	                   {
-	                       "line": 19,
-	                       "msg": "first ref msg",
-	                       "tag": "first_tag",
-	                       "path": ` + srcPath + `
-	                   },
-	                   {
-	                       "line": 20,
-	                       "msg": "second ref msg",
-	                       "tag": "second_tag",
-	                       "path": ` + srcPath + `
-	                   }
-	               ]
-	           },{
-	               "path": ` + srcPath + `,
-	               'line': 18,
-	               'column': 12,
-	               'msg': "This is a testcase.",
-	               'rule': "DemoRule",
-	               "refs": [
-	                   {
-	                       "line": 20,
-	                       "msg": "first ref msg",
-	                       "tag": "first_tag",
-	                       "path": ` + srcPath + `
-	                   },
-	                   {
-	                       "line": 21,
-	                       "msg": "second ref msg",
-	                       "tag": "second_tag",
-	                       "path": ` + srcPath + `
-	                   }
-	               ]
-	           }]`
+	srcPath := filepath.Join(os.Getenv("SOURCE_DIR"), "crypto-java", "src", "main", "java", "de", "dominikschadow", "javasecurity", "Keystore.java")
+	result := `[
+            {
+                "path": "` + srcPath + `",
+                "line": 17,
+                "column": 12,
+                "msg": "This is a testcase.",
+                "rule": "test",
+                "refs": [
+                    {
+                        "line": 23,
+                        "msg": "first ref msg",
+                        "tag": "first_tag",
+                        "path": "` + srcPath + `"
+                    },
+                    {
+                        "line": 27,
+                        "msg": "second ref msg",
+                        "tag": "second_tag",
+                        "path": "` + srcPath + `"
+                    }
+                ]
+            },
+			{
+                "path": "` + srcPath + `",
+                "line": 20,
+                "column": 0,
+                "msg": "This is a testcase.",
+                "rule": "DemoRule",
+                "refs": [
+                    {
+                        "line": 23,
+                        "msg": "first ref msg",
+                        "tag": "first_tag",
+                        "path": "` + srcPath + `"
+                    },
+                    {
+                        "line": 27,
+                        "msg": "second ref msg",
+                        "tag": "second_tag",
+                        "path": "` + srcPath + `"
+                    }
+                ]
+            }
+        ]`
 	logger.Info(filepath.Join(os.Getenv("RESULT_DIR"), "result.json"))
 	err := ioutil.WriteFile(filepath.Join(os.Getenv("RESULT_DIR"), "result.json"), []byte(result), 0644)
 	if err != nil {
